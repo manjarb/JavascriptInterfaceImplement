@@ -1,0 +1,28 @@
+https://stackoverflow.com/questions/29600453/correct-use-of-the-javascript-interface-keyword
+
+/* Example from: 
+    http://www.innoarchitech.com/scalable-maintainable-javascript-modules */
+var myPrototypeModule = (function (){
+
+   var privateVar = "Alex Castrounis",
+       count = 0;
+
+   function PrototypeModule(name){
+    this.name = name;
+   }
+
+   function privateFunction() {
+      console.log( "Name:" + privateVar );
+      count++;
+   }
+
+   PrototypeModule.prototype.setName = function(strName){
+      this.name = strName;
+   };
+
+   PrototypeModule.prototype.getName = function(){
+      privateFunction();
+   };
+
+   return PrototypeModule;     
+})();
